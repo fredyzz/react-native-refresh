@@ -3,7 +3,10 @@ import { Animated, View, Text, Image, StyleSheet } from "react-native";
 
 export default GameCard = ({ game }) => {
   return (
-    <View key={game.slug} style={styles.card}>
+    <View
+    key={game.slug}
+    className={"bg-red-500"}
+    >
       <Image source={{ uri: game.image }} style={styles.image} />
       <Text style={styles.title}>{game.title}</Text>
       <Text style={styles.score}>{game.score}</Text>
@@ -34,9 +37,6 @@ export const AnimatedGameCard = ({ game, index }) => {
 
 
 const styles = StyleSheet.create({
-  card: {
-    marginBottom: 36,
-  },
   image: {
     width: 104,
     height: 147,
