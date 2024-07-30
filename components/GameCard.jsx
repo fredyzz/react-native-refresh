@@ -5,12 +5,16 @@ export default GameCard = ({ game }) => {
   return (
     <View
     key={game.slug}
-    className={"bg-red-500"}
+    className={"flex-row mb-8 p-4 rounded-xl gap-4 bg-slate-800/10"}
     >
       <Image source={{ uri: game.image }} style={styles.image} />
-      <Text style={styles.title}>{game.title}</Text>
-      <Text style={styles.score}>{game.score}</Text>
-      <Text style={styles.description}>{game.description}</Text>
+      <View>
+        <Text style={styles.title}>{game.title}</Text>
+        <Text style={styles.score}>{game.score}</Text>
+        <Text 
+        className="mt-2 flex-shrink"
+        style={styles.description}>{game.description.slice(0,100)}...</Text>
+      </View>
     </View>
   );
 };
