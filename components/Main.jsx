@@ -1,14 +1,10 @@
 import { useState, useEffect } from "react";
-import { ActivityIndicator, FlatList, Pressable, View } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { Link } from "expo-router";
+import { ActivityIndicator, FlatList } from "react-native";
 import { getLatestGames } from "../lib/metacritic";
 import { AnimatedGameCard } from "./GameCard";
-import { Logo } from "./Logo";
-import { InfoIcon } from "./Icons";
+import { Screen } from "./Screen";
 
 export default function Main() {
-  const insets = useSafeAreaInsets();
   const [games, setGames] = useState([]);
 
   useEffect(() => {
@@ -21,18 +17,7 @@ export default function Main() {
   }, []);
 
   return (
-    <View
-      style={{ paddingTop: insets.top, paddingBottom: insets.bottom }}
-      className="bg-black"
-    >
-      <View style={{ marginBottom: 20 }}>
-        <Logo />
-      </View>
-      <Link asChild href="/about">
-        <Pressable className="mb-4">
-          <InfoIcon />
-        </Pressable>
-      </Link>
+    <Screen>
       {games.length === 0 ? (
         <ActivityIndicator size="large" />
       ) : (
@@ -44,6 +29,6 @@ export default function Main() {
           )}
         />
       )}
-    </View>
+    </Screen>
   );
 }
