@@ -1,11 +1,14 @@
-import { ScrollView, Text } from "react-native";
+import { Pressable, ScrollView, Text } from "react-native";
 import { Link } from "expo-router";
+import Entypo from "@expo/vector-icons/Entypo";
 
 export default function About() {
   return (
     <ScrollView className="bg-black">
-      <Link href="/" className="text-blue-500 mt-24">
-        Home
+      <Link asChild href="/">
+        <Pressable className="mt-24">
+          <Entypo name="home" size={24} color="white" />
+        </Pressable>
       </Link>
       <Text className="text-white font-bold text-2xl mb-8">About</Text>
       <Text className="text-white mb-8">
